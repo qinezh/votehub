@@ -34,7 +34,7 @@ export default class FeatureTitle extends Component {
                     <LikeLabel count={this.state.feature.count} handleOnClick={this.handleOnClick} />
                 </Table.Cell>
                 <Table.Cell>
-                    <Link to={`/details/${this.state.feature.id}`}>
+                    <Link to={process.env.PUBLIC_URL + `/details/${this.state.feature.id}`}>
                         {this.props.feature.title}
                     </Link>
                 </Table.Cell>

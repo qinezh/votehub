@@ -17,8 +17,8 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Container text>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/details/:id' component={Details} />
+            <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
+            <Route exact path={process.env.PUBLIC_URL +'/details/:id'} component={Details} />
           </Container>
         </div>
       </Router>

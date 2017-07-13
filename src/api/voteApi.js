@@ -1,33 +1,18 @@
 export default class VoteApi {
     static features = [{
         "id": "0",
-        "title": "Support to xxx",
-        "count": 16
+        "title": "docfx watch: serve rebuild file changes",
+        "count": 20
     },
     {
-        "id": "1",        
-        "title": "Improve xxx",
-        "count": 10
+        "id": "1",
+        "title": "More attractive themes",
+        "count": 8
     },
     {
-        "id": "2",        
-        "title": "Support to xxxx",
-        "count": 16
-    },
-    {
-        "id": "3",        
-        "title": "Improve xxxx",
-        "count": 10
-    },
-    {
-        "id": "4",        
-        "title": "Support to xxxxx",
-        "count": 16
-    },
-    {
-        "id": "5",        
-        "title": "Improve xxxxx",
-        "count": 10
+        "id": "2",
+        "title": "Website auto-build and host documents",
+        "count": 5
     }]
 
     static addCount(id) {

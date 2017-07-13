@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 import LikeLabel from './LikeLabel';
 import VoteApi from '../api/voteApi';
 import 'semantic-ui-css/semantic.min.css';
@@ -8,7 +9,7 @@ export default class FeatureTitle extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            count: this.props.count,
+            feature: this.props.feature,
             adjustOrder: this.props.adjustOrder
         };
         this.handleOnClick = this.handleOnClick.bind(this);
@@ -16,9 +17,13 @@ export default class FeatureTitle extends Component {
 
     handleOnClick() {
         this.setState({
-            count: this.state.count+1
+            feature: {
+                "id": this.state.feature.id,
+                "count": this.state.feature.count + 1,
+                "title": this.state.feature.title
+            }
         });
-        VoteApi.addCount(this.props.title);
+        VoteApi.addCount(this.state.feature.id);
         this.state.adjustOrder();
     }
 
@@ -26,10 +31,12 @@ export default class FeatureTitle extends Component {
         return (
             <Table.Row>
                 <Table.Cell>
-                    <LikeLabel count={this.state.count} handleOnClick={this.handleOnClick} />
+                    <LikeLabel count={this.state.feature.count} handleOnClick={this.handleOnClick} />
                 </Table.Cell>
                 <Table.Cell>
-                    {this.props.title}
+                    <Link to={`/details/${this.state.feature.id}`}>
+                        {this.props.feature.title}
+                    </Link>
                 </Table.Cell>
             </Table.Row>
         );

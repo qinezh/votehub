@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import Home from './components/Home';
+import Details from './components/Details';
 import Navbar from './components/Navbar';
 
 import 'semantic-ui-css/semantic.min.css';
@@ -11,12 +13,15 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Navbar/>
-        <Container text>
-          <Home/>
-        </Container>
-      </div>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Container text>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/details/:id' component={Details} />
+          </Container>
+        </div>
+      </Router>
     );
   }
 }

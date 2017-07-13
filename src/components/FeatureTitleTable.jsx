@@ -26,7 +26,7 @@ export default class FeatureTitleTable extends Component {
     render() {
         let rows = [];
         this.state.features.forEach(feature => {
-            rows.push(<FeatureTitle title={feature.title} count={feature.count} adjustOrder={this.adjustOrder} key={feature.title} />);
+            rows.push(<FeatureTitle feature={feature} adjustOrder={this.adjustOrder} key={feature.id} />);
         });
 
         return (

@@ -7,7 +7,7 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            "features": VoteApi.getAll()
+            "features": VoteApi.getAllItems()
         }
     }
     render() {

@@ -1,0 +1,26 @@
+{
+    "name": "votehub",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "dotenv": "^4.0.0",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1",
+        "react-router-dom": "^4.1.1",
+        "react-scripts": "1.0.10",
+        "semantic-ui-css": "^2.2.10",
+        "semantic-ui-react": "^0.71.0",
+        "toastr": "^2.1.2"
+    },
+    "devDependencies": {
+        "@types/toastr": "^2.1.34",
+        "gh-pages": "^1.0.0"
+    },
+    "proxy": "http://localhost:4001",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    }
+}

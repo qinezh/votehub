@@ -21,7 +21,8 @@ export default class CreateTopic extends Component {
     async handleSubmitAsync() {
         const { title, description } = this.state;
         const ownerId = localStorage.getItem("id");
-        const status = await VoteApi.createTopicAsync(ownerId, title, description);
+        const idSign = localStorage.getItem("id.sig");
+        const status = await VoteApi.createTopicAsync(ownerId, idSign, title, description);
 
         if (status === 401) {
             Toastr.warning("Invalid user, please log in with GitHub OAuth.");

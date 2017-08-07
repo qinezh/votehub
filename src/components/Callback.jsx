@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Loader } from 'semantic-ui-react'
-import { encrypt } from '../util';
 
 class Callback extends Component {
     constructor(props) {
@@ -23,7 +22,7 @@ class Callback extends Component {
             .then(user => {
                 localStorage.setItem("userName", user.profile.name);
                 localStorage.setItem("id", id);
-                localStorage.setItem("id.sig", encrypt(id));
+                localStorage.setItem("id.sig", user.idSign);
             });
         this.setState({
             loading: false

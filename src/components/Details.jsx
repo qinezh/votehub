@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Header, Divider, Loader, Container } from 'semantic-ui-react';
 import * as Toastr from 'toastr';
-
 import LikeLabel from './LikeLabel';
 import VoteApi from '../api/voteApi';
 import Navbar from './Navbar';
-import { isEncrypt } from "../util";
 
 export default class Details extends Component {
     constructor(props) {
@@ -16,7 +14,6 @@ export default class Details extends Component {
             loading: true,
             topicId: topicId
         }
-        this.handleOnClickAsync = this.handleOnClickAsync.bind(this);
     }
 
     async componentWillMount() {
@@ -34,46 +31,6 @@ export default class Details extends Component {
         });
     }
 
-    async handleOnClickAsync() {
-        const { topicId } = this.state;
-        const userId = localStorage.getItem("id");
-        const userIdSig = localStorage.getItem("id.sig");
-
-        if (!userId) {
-            Toastr.info("Please login before voting.");
-            return;
-        }
-
-        if (!isEncrypt(userId, userIdSig)) {
-            Toastr.info("Invalid user, please re-login before voting.");
-            return;
-        }
-
-        const count = this.state.count;
-        this.setState({
-            count: count + 1
-        });
-
-        const status = await VoteApi.addCountAsync(topicId, userId);
-
-        switch (status) {
-            case 406:
-                Toastr.warning("You have already voted for the topic!");
-                this.setState({
-                    count: count
-                });
-                return;
-            case 401:
-                this.setState({
-                    count: count + 1
-                });
-                Toastr.warning("Invalid user, please login with GitHub OAuth.");
-                return;
-            default:
-                return;
-        }
-    }
-
     render() {
         return (
             <div className="App">
@@ -85,7 +42,7 @@ export default class Details extends Component {
                             :
                             <Container text>
                                 <Header as='h2'>{this.state.title} </Header>
-                                <LikeLabel count={this.state.count} handleOnClick={this.handleOnClickAsync} />
+                                <LikeLabel count={this.state.count} topicId={this.state.topicId}/>
                                 <Divider />
                                 <p> {this.state.description} </p>
                             </Container>

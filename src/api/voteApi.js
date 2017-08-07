@@ -1,7 +1,11 @@
 export default class VoteApi {
     static topics = [];
 
-    static addCountAsync(topicId, userId) {
+    static addCountAsync(topicId, userId, userIdSign) {
+        if (!topicId || !userId || !userIdSign) {
+            throw new Error("topicId/userId/userIdSign can't be undefined/null.");
+        }
+
         return fetch("/api/topic", {
             method: "PUT",
             headers: {
@@ -9,7 +13,8 @@ export default class VoteApi {
             },
             body: JSON.stringify({
                 "topicId": topicId,
-                "userId": userId
+                "userId": userId,
+                "userIdSign": userIdSign
             })
         }).then(res => res.status);
     }
@@ -26,7 +31,7 @@ export default class VoteApi {
         return fetch(`/api/topic/${id}`).then(res => res.json());
     }
 
-    static async createTopicAsync(owner, title, description) {
+    static async createTopicAsync(owner, idSign, title, description) {
         return fetch(`/api/topic/`, {
             method: 'POST',
             headers: {
@@ -34,6 +39,7 @@ export default class VoteApi {
             },
             body: JSON.stringify({
               "owner": owner,
+              "idSign": idSign,
               "title": title,
               "description": description,
               "count": 0

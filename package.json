@@ -22,6 +22,6 @@
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d build -b master -o azure -m 'New deployment'"
+        "deploy": "gh-pages -d build -b master -o origin -m 'New deployment'"
     }
 }

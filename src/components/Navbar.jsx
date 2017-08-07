@@ -55,7 +55,7 @@ export default class Navbar extends Component {
                                     </Dropdown.Menu>
                                 </Dropdown>
                                 :
-                                <Menu.Item name='login' href={'http://localhost:4001/auth/github'} />
+                                <Menu.Item name='login' href={''} />
                         }
                     </Menu.Menu>
                 </Menu>

@@ -15,13 +15,12 @@
         "@types/toastr": "^2.1.34",
         "gh-pages": "^1.0.0"
     },
-    "proxy": "http://localhost:4001",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d build -b master -o origin -m 'New deployment'"
+        "deploy": "gh-pages -d build -b deploy -o origin -m deploy"
     }
 }

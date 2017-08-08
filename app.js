@@ -40,6 +40,6 @@ app.get("/auth/github/callback", passport.authenticate("github", { failureRedire
     res.redirect("/callback/" + req.user.id);
 });
 app.use('/api', routes_1.default);
-// app.get("*", (req, res) => res.sendFile(path.resolve(root, "index.html")));
+app.get("*", (req, res) => res.sendFile(path.resolve(root, "index.html")));
 var port = process.env.PORT || '4000';
 app.listen(port, function () { return console.log("API running on localhost:" + port); });

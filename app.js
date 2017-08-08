@@ -25,7 +25,7 @@ else {
     app.use(logger("combined", { stream: logStream }));
 }
 mongo.connect(process.env.DBNAME, process.env.DBPORT, process.env.DBPASSWORD);
-var strategy = passport_1.getGithubStrategy(process.env.GITHUB_CLIENT_ID, process.env.GITHUB_CLIENT_SECRET, "/auth/github/callback");
+var strategy = passport_1.getGithubStrategy(process.env.GITHUB_CLIENT_ID, process.env.GITHUB_CLIENT_SECRET, "https://vote4docfx.azurewebsites.net/auth/github/callback");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(root));

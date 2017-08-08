@@ -28,7 +28,7 @@ mongo.connect(process.env.DBNAME, process.env.DBPORT, process.env.DBPASSWORD);
 var strategy = passport_1.getGithubStrategy(process.env.GITHUB_CLIENT_ID, process.env.GITHUB_CLIENT_SECRET, "/auth/github/callback");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(express.static(path.join(root, 'build')));
+app.use(express.static(root));
 app.use(passport.initialize());
 passport.use(strategy);
 app.get("/auth/github", passport.authenticate("github", { scope: ["email", "public_profile"] }));
@@ -40,6 +40,6 @@ app.get("/auth/github/callback", passport.authenticate("github", { failureRedire
     res.redirect("/callback/" + req.user.id);
 });
 app.use('/api', routes_1.default);
-app.get("*", function (req, res) { return res.sendFile(path.resolve(root, "index.html")); });
+// app.get("*", (req, res) => res.sendFile(path.resolve(root, "index.html")));
 var port = process.env.PORT || '4000';
 app.listen(port, function () { return console.log("API running on localhost:" + port); });

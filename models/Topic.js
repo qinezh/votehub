@@ -5,7 +5,6 @@ var topicSchema = new mongoose.Schema({
     title: String,
     description: String,
     owner: String,
-    count: Number,
     voters: Array
 }, {
     collection: "topics",
@@ -14,3 +13,4 @@ var topicSchema = new mongoose.Schema({
 });
 var Topic = mongoose.model("Topic", topicSchema);
 exports.default = Topic;
+//# sourceMappingURL=Topic.js.map

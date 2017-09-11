@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var User_1 = require("../models/User");
 function getUser(req, res) {
-    console.log(req.body.id);
-    var dbquery = User_1.default.findById({ "_id": req.params.id });
+    var userId = res.get("userId");
+    var dbquery = User_1.default.findById(userId);
     dbquery
         .exec()
         .then(function (user) {
@@ -14,3 +14,9 @@ function getUser(req, res) {
     });
 }
 exports.getUser = getUser;
+function logout(req, res, next) {
+    res.clearCookie("jwt");
+    return res.sendStatus(200);
+}
+exports.logout = logout;
+//# sourceMappingURL=UserController.js.map

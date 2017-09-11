@@ -15,3 +15,4 @@ function connect(dbName, dbPort, dbPassword) {
     });
 }
 exports.connect = connect;
+//# sourceMappingURL=mongo.js.map

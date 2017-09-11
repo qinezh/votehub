@@ -14,3 +14,4 @@ function isEncrypt(origin, encryped) {
     return encrypt(origin) === encryped;
 }
 exports.isEncrypt = isEncrypt;
+//# sourceMappingURL=util.js.map

@@ -45,3 +45,4 @@ function getGithubStrategy(clientID, clientSecret, callbackURL) {
     });
 }
 exports.getGithubStrategy = getGithubStrategy;
+//# sourceMappingURL=passport.js.map

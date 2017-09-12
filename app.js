@@ -30,9 +30,8 @@ app.use(express.static(path.join(root, 'dist')));
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', "true");
     res.setHeader("Access-Control-Allow-Origin", "https://qinezh.github.io");
-    res.setHeader("Access-Control-Allow-Origins", "https://qinezh.github.io");
-    res.setHeader('Access-Control-Allow-Methods', ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE']);
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, authorization');
     next();
 });
 app.use('/api', routes_1.default);

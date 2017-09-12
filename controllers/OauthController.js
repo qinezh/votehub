@@ -69,7 +69,7 @@ function getOauthAsync(req, res) {
                     clientUrl = req.query.redirect_url;
                     clientId = encodeURIComponent("97c0a628cd5c54f1d779");
                     state = clientUrl;
-                    redirectUrl = encodeURIComponent("http://localhost:4001/api/auth/github/callback");
+                    redirectUrl = encodeURIComponent("https://vote4docfx.azurewebsites.net/api/auth/github/callback");
                     url = "https://github.com/login/oauth/authorize?client_id=" + clientId + "&redirect_url=" + redirectUrl + "&state=" + state;
                     res.redirect(url);
                     return [2 /*return*/];
